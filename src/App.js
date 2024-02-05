@@ -1,8 +1,8 @@
 import './App.css';
 
-function Counter() {
+function Counter(props) {
   return <>
-    <h1>Counter</h1>
+    <h1>{props.title}</h1>
     <button>+</button> 0
   </>
 }
@@ -10,7 +10,7 @@ function Counter() {
 function App() {
   return (
     <div>
-      <Counter />
+      <Counter title="Counter"/>
     </div>
   );
 }
