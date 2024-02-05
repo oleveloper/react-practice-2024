@@ -2,15 +2,11 @@ import { useState } from 'react';
 import './App.css';
 
 function Counter({title, initValue}) {
-  const [value, valueState] = useState(initValue);
+  const [value, setValue] = useState(initValue);
 
-  function add() {
-    valueState(value + 1);
-  };
-  
   return <>
     <h1>{title}</h1>
-    <button onClick={add}>+</button> {value}
+    <button onClick={() => setValue(value + 1)}>+</button> {value}
   </>
 }
 
