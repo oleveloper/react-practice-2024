@@ -3,10 +3,14 @@ import './App.css';
 
 function Counter({title, initValue}) {
   const [value, setValue] = useState(initValue);
+  const [step, setStep] = useState(1);
 
   return <>
     <h1>{title}</h1>
-    <button onClick={() => setValue(value + 1)}>+</button> {value}
+    <input type="number" value={step} onChange={(evt)=>{
+      setStep(parseInt(evt.target.value));
+    }}/>
+    <button onClick={() => setValue(value + step)}>+</button> {value}
   </>
 }
 
