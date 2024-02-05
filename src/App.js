@@ -1,16 +1,17 @@
 import './App.css';
 
 function Counter(props) {
+  const {title, initValue} = props;
   return <>
-    <h1>{props.title}</h1>
-    <button>+</button> 0
+    <h1>{title}</h1>
+    <button>+</button> {initValue}
   </>
 }
 
 function App() {
   return (
     <div>
-      <Counter title="Counter"/>
+      <Counter title="Counter" initValue={0}/>
     </div>
   );
 }
