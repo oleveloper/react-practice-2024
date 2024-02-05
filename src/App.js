@@ -18,6 +18,19 @@ function Counter({title, initValue}) {
     const newValue = value + step;
     setValue(newValue);
     setHistory([...history, newValue]);
+
+    const requestBody = {'value' : newValue};
+    fetch('http://localhost:9999/counter/', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(requestBody),
+    })
+    .then(resp=>resp.json())
+    .then(result=> {
+      console.log(result);
+    });
   }
 
   return <>
@@ -27,8 +40,8 @@ function Counter({title, initValue}) {
     }}/>
     <button onClick={add}>+</button> {value}
     <ol>
-      {history.map((item, idx) => (
-        <li key={idx}>{item}</li>
+      {history.map((elem, idx) => (
+        <li key={idx}>{elem}</li>
       ))}
     </ol>
   </>
