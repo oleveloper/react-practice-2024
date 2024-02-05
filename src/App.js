@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import './App.css';
 
 function Counter({title, initValue}) {
+  const [value, valueState] = useState(initValue);
+
   function add() {
-    alert('Add!');
-  }
+    valueState(value + 1);
+  };
   
   return <>
     <h1>{title}</h1>
-    <button onClick={add}>+</button> {initValue}
+    <button onClick={add}>+</button> {value}
   </>
 }
 
