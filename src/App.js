@@ -1,10 +1,16 @@
 import './App.css';
 
+function Counter() {
+  return <>
+    <h1>Counter</h1>
+    <button>+</button> 0
+  </>
+}
+
 function App() {
   return (
     <div>
-      <h1>Counter</h1>
-      <button>+</button> 0
+      <Counter />
     </div>
   );
 }
